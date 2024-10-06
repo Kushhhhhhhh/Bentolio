@@ -179,7 +179,7 @@ export default function Home() {
         <motion.div variants={itemVariants} className="bg-[#d8cfbc] p-4 rounded-md flex justify-evenly items-center scroll-trigger col-span-12 md:col-span-6 lg:col-span-3">
           {[
             { href: 'https://www.linkedin.com/in/kushsharma738', Icon: Linkedin },
-            { href: 'https://github.com/skyward-shadow', Icon: Github },
+            { href: 'https://github.com/Kushhhhhhhh', Icon: Github },
             { href: 'mailto:fullstack.kush@gmail.com', Icon: Mail },
           ].map(({ href, Icon }) => (
             <Link key={href} href={href}>
