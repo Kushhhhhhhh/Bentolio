@@ -8,6 +8,7 @@ import { motion } from 'framer-motion';
 import { gsap } from 'gsap';
 
 export default function Home() {
+
   const mainImageRef = useRef(null);
 
   useEffect(() => {
@@ -80,7 +81,7 @@ export default function Home() {
           </Link>
         </nav>
       </motion.header>
-
+  
       <div className="grid grid-cols-12 gap-4">
         <motion.div
           variants={itemVariants}
@@ -179,6 +180,9 @@ export default function Home() {
           <h3 className="text-4xl md:text-5xl mt-4 font-sans font-semibold text-[#ffecdd]">
             Contact me
           </h3>
+          <h3 className="text-4xl md:text-5xl mt-4 font-sans font-semibold text-[#ffecdd]">
+            Contact me
+          </h3>
         </motion.div>
 
         <motion.div
@@ -203,5 +207,5 @@ export default function Home() {
         </motion.div>
       </div>
     </motion.div>
-  );
+  );  
 }
