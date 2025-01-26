@@ -67,15 +67,15 @@ export default function Home() {
           Kush Sharma
         </h1>
         <nav className="space-x-4 mr-4">
-          <Link href="#projects" className="text-sm sm:text-base text-[#6B4D30] hover:text-[#4A3728] relative group">
+          <Link href="https://github.com/Kushhhhhhhh" className="text-sm sm:text-base text-[#6B4D30] hover:text-[#4A3728] relative group">
             PROJECTS
             <span className="absolute left-0 bottom-0 h-0.5 w-0 bg-[#4A3728] transition-all duration-300 group-hover:w-full"></span>
           </Link>
-          <Link href="#about" className="text-sm sm:text-base text-[#6B4D30] hover:text-[#4A3728] relative group">
+          <Link href="https://kush-sharma.vercel.app" className="text-sm sm:text-base text-[#6B4D30] hover:text-[#4A3728] relative group">
             ABOUT
             <span className="absolute left-0 bottom-0 h-0.5 w-0 bg-[#4A3728] transition-all duration-300 group-hover:w-full"></span>
           </Link>
-          <Link href="#contact" className="text-sm sm:text-base text-[#6B4D30] hover:text-[#4A3728] relative group">
+          <Link href="https://www.linkedin.com/in/kushsharma738" className="text-sm sm:text-base text-[#6B4D30] hover:text-[#4A3728] relative group">
             CONTACT
             <span className="absolute left-0 bottom-0 h-0.5 w-0 bg-[#4A3728] transition-all duration-300 group-hover:w-full"></span>
           </Link>
@@ -177,9 +177,6 @@ export default function Home() {
               </Link>
             </motion.div>
           </div>
-          <h3 className="text-4xl md:text-5xl mt-4 font-sans font-semibold text-[#ffecdd]">
-            Contact me
-          </h3>
           <h3 className="text-4xl md:text-5xl mt-4 font-sans font-semibold text-[#ffecdd]">
             Contact me
           </h3>
