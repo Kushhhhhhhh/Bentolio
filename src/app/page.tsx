@@ -4,17 +4,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, Linkedin, Github, Mail } from 'lucide-react';
 import { useEffect, useRef, useMemo } from 'react';
-import { motion, useAnimation } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
-gsap.registerPlugin(ScrollTrigger);
 
 export default function Home() {
-
   const mainImageRef = useRef(null);
-  const scrollRef = useRef(null);
-  const controls = useAnimation();
 
   useEffect(() => {
     gsap.fromTo(
@@ -22,36 +16,15 @@ export default function Home() {
       { opacity: 0, scale: 0.8 },
       { opacity: 1, scale: 1, duration: 2, ease: "power3.out" }
     );
-
-    gsap.utils.toArray('.scroll-trigger').forEach((element) => {
-      if (element instanceof Element) {
-        gsap.fromTo(element,
-          { y: 50, opacity: 0 },
-          {
-            y: 0,
-            opacity: 1,
-            duration: 1,
-            scrollTrigger: {
-              trigger: element,
-              start: "top bottom-=100",
-              end: "bottom top+=100",
-              toggleActions: "play none none reverse",
-            },
-          }
-        );
-      }
-    });
-
-    controls.start("visible");
-  }, [controls]);
+  }, []);
 
   useEffect(() => {
     gsap.to(".leaf-image", {
       y: -10,
-      repeat: -1,  
-      yoyo: true,  
-      ease: "power1.inOut",  
-      duration: 2, 
+      repeat: -1,
+      yoyo: true,
+      ease: "power1.inOut",
+      duration: 2,
     });
   }, []);
 
@@ -80,44 +53,46 @@ export default function Home() {
 
   return (
     <motion.div
-      ref={scrollRef}
       className="bg-[#11120d] min-h-screen p-3 md:p-5 text-gray-200"
       initial="hidden"
-      animate={controls}
+      animate="visible"
       variants={containerVariants}
     >
       <motion.header
         variants={itemVariants}
         className="flex flex-col bg-[#d8cfbc] rounded-2xl p-4 sm:flex-row justify-between items-center mb-8"
       >
-        <h1 className="text-xl font-bold font-serif italic text-[#4A3728] ml-4 mb-4 sm:mb-0">
+        <h1 className="text-xl md:text-3xl font-extrabold font-sans text-[#4A3728] ml-4 mb-4 sm:mb-0">
           Kush Sharma
         </h1>
         <nav className="space-x-4 mr-4">
-          <Link href="#projects" className="text-sm text-[#6B4D30] hover:text-[#4A3728]">
+          <Link href="#projects" className="text-sm sm:text-base text-[#6B4D30] hover:text-[#4A3728] relative group">
             PROJECTS
+            <span className="absolute left-0 bottom-0 h-0.5 w-0 bg-[#4A3728] transition-all duration-300 group-hover:w-full"></span>
           </Link>
-          <Link href="#about" className="text-sm text-[#6B4D30] hover:text-[#4A3728]">
+          <Link href="#about" className="text-sm sm:text-base text-[#6B4D30] hover:text-[#4A3728] relative group">
             ABOUT
+            <span className="absolute left-0 bottom-0 h-0.5 w-0 bg-[#4A3728] transition-all duration-300 group-hover:w-full"></span>
           </Link>
-          <Link href="#contact" className="text-sm text-[#6B4D30] hover:text-[#4A3728]">
+          <Link href="#contact" className="text-sm sm:text-base text-[#6B4D30] hover:text-[#4A3728] relative group">
             CONTACT
+            <span className="absolute left-0 bottom-0 h-0.5 w-0 bg-[#4A3728] transition-all duration-300 group-hover:w-full"></span>
           </Link>
         </nav>
       </motion.header>
-  
+
       <div className="grid grid-cols-12 gap-4">
         <motion.div
           variants={itemVariants}
-          className="bg-[#d8cfbc] p-6 rounded-md col-span-12 md:col-span-6 lg:col-span-4 flex flex-col justify-evenly scroll-trigger"
+          className="bg-[#d8cfbc] p-6 rounded-md col-span-12 md:col-span-6 lg:col-span-4 flex flex-col justify-evenly"
         >
           <motion.div variants={itemVariants} className="flex justify-end items-center">
             <Image
-              src="/coffee.png"
-              alt="coffee"
+              src="/leaf.png"
+              alt="leaf-img"
               width={150}
               height={150}
-              className="object-cover h-auto mb-4 mr-4 hover:scale-110 transition-all duration-300 ease-in-out"
+              className="object-cover h-auto leaf-image"
               priority
             />
           </motion.div>
@@ -125,10 +100,10 @@ export default function Home() {
             Building Stunning Web Applications with <span className="italic underline">Next.js</span> that inspire and captivate users.
           </h2>
         </motion.div>
-  
+
         <div
           ref={mainImageRef}
-          className="bg-[#57544a] rounded-md flex items-end justify-center main_image col-span-12 md:col-span-5 lg:col-span-4"
+          className="bg-[#57544a] rounded-md flex items-end justify-center main-image col-span-12 md:col-span-5 lg:col-span-4"
         >
           <Image
             src="/bentolio-avatar.png"
@@ -139,15 +114,15 @@ export default function Home() {
             priority
           />
         </div>
-  
+
         <motion.div
           variants={itemVariants}
-          className="bg-[#d8cfbc] p-4 rounded-md flex flex-col justify-evenly scroll-trigger col-span-12 md:col-span-7 lg:col-span-4"
+          className="bg-[#d8cfbc] p-4 rounded-md flex flex-col justify-evenly col-span-12 md:col-span-7 lg:col-span-4"
         >
           <div className="flex justify-between items-center mb-4">
-            <h3 className="text-2xl font-semibold text-[#4A3728]">Work</h3>
+            <h3 className="text-2xl font-extrabold text-[#4A3728]">Work</h3>
             <motion.div whileHover={{ scale: 1.2, rotate: 20 }} whileTap={{ scale: 0.9 }}>
-              <Link href="https://visionforge.vercel.app">
+              <Link href="https://visionforgev2.vercel.app">
                 <ArrowUpRight className="text-[#6B4D30] cursor-pointer" size={24} />
               </Link>
             </motion.div>
@@ -164,34 +139,34 @@ export default function Home() {
               />
             </div>
             <div className="flex flex-col items-start p-2 px-4">
-              <h3 className="text-2xl font-semibold text-[#4A3728] mb-2 text-left">Vision Forge</h3>
-              <p className="text-sm font-thin text-left text-black">
-                VisionForge is a dynamic project, allows users to generate stunning images for free using prompts, with unlimited generations available.
+              <h3 className="text-2xl font-bold text-[#4A3728] mb-2 text-left">Vision Forge</h3>
+              <p className="text-sm font-inter text-left text-black">
+                VisionForge is a powerful tool that lets you create amazing images for free with just a few words—unlimited creativity at your fingertips!
               </p>
             </div>
           </div>
         </motion.div>
-  
+
         <motion.div
           variants={itemVariants}
-          className="bg-[#d8cfbc] p-6 rounded-md scroll-trigger col-span-12 md:col-span-6 lg:col-span-6 flex justify-between gap-4 items-center"
+          className="bg-[#d8cfbc] p-6 rounded-md col-span-12 md:col-span-6 lg:col-span-6 flex justify-between gap-4 items-center"
         >
           <Image
-            src="/leaf.png"
-            alt="leaf-img"
-            className="object-cover h-auto leaf-image"
+            src="/coffee.png"
+            alt="coffee"
+            className="object-cover h-auto mb-4 mr-4 hover:scale-110 transition-all duration-300 ease-in-out"
             width={100}
             height={100}
             priority
           />
-          <p className="text-md font-thin text-black">
-            A dedicated and driven developer with a strong passion for creating meaningful digital experiences. Known for a problem-solving mindset, attention to detail, and a genuine curiosity to learn and grow. Always ready to tackle challenges with persistence and a commitment to delivering quality results.
+          <p className="text-sm sm:text-base font-inter text-black">
+            I&apos;m a driven and curious person with a passion for innovation and personal growth. I&apos;m known for my problem-solving skills, attention to detail, and persistence. I approach challenges with dedication and a commitment to excellence in everything I do.
           </p>
         </motion.div>
-  
+
         <motion.div
           variants={itemVariants}
-          className="bg-[#57544a] p-6 rounded-md scroll-trigger col-span-12 md:col-span-6 lg:col-span-3 flex flex-col justify-between"
+          className="bg-[#57544a] p-6 rounded-md col-span-12 md:col-span-6 lg:col-span-3 flex flex-col justify-between"
         >
           <div className="flex justify-between items-center">
             <h3 className="text-lg font-thin mb-2 text-[#ffddc3]">Have some questions?</h3>
@@ -205,10 +180,10 @@ export default function Home() {
             Contact me
           </h3>
         </motion.div>
-  
+
         <motion.div
           variants={itemVariants}
-          className="bg-[#d8cfbc] p-4 rounded-md flex justify-evenly items-center scroll-trigger col-span-12 md:col-span-6 lg:col-span-3"
+          className="bg-[#d8cfbc] p-4 rounded-md flex justify-evenly items-center col-span-12 md:col-span-6 lg:col-span-3"
         >
           {[
             { href: 'https://www.linkedin.com/in/kushsharma738', Icon: Linkedin },
@@ -228,5 +203,5 @@ export default function Home() {
         </motion.div>
       </div>
     </motion.div>
-  );  
+  );
 }
