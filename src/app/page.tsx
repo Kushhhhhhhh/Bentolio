@@ -125,14 +125,14 @@ export default function Home() {
           {/* Box 2 */}
           <div
             ref={mainImageRef}
-            className="bg-[#57544a] rounded-md flex items-end justify-center"
+            className="bg-[#57544a] rounded-md flex items-center justify-center p-4"
           >
             <Image
               src="/avatar.png"
               alt="Kush Sharma"
-              width={600}
-              height={600}
-              className="max-w-[500px] object-cover pt-12"
+              width={500}
+              height={500}
+              className="w-full max-w-[400px] sm:max-w-[450px] md:max-w-[500px] h-auto object-contain pt-12"
               priority
             />
           </div>
