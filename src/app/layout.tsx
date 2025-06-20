@@ -1,19 +1,48 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
 import "./globals.css";
-import { Inter } from "next/font/google";
+import {
+  Inter,
+  Poppins,
+  David_Libre,
+  Fira_Code,
+  Lora,
+  Spectral,
+} from "next/font/google";
 
-const inter = Inter({ subsets: ['latin'] })
-
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
+const inter = Inter({
+  weight: ["400", "700"],
+  subsets: ["latin"],
+  variable: "--font-inter",
 });
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
+
+const poppins = Poppins({
+  weight: ["400", "500", "600", "700"],
+  subsets: ["latin"],
+  variable: "--font-poppins",
+});
+
+const davidLibre = David_Libre({
+  weight: ["400", "500", "700"],
+  subsets: ["latin"],
+  variable: "--font-david-libre",
+});
+
+const firaCode = Fira_Code({
+  weight: ["400", "500", "600", "700"],
+  subsets: ["latin"],
+  variable: "--font-fira-code",
+});
+
+const lora = Lora({
+  weight: ["400", "500", "600", "700"],
+  subsets: ["latin"],
+  variable: "--font-lora",
+});
+
+const spectral = Spectral({
+  weight: ["400", "500", "600", "700", "800"],
+  subsets: ["latin"],
+  variable: "--font-spectral",
 });
 
 export const metadata: Metadata = {
@@ -29,7 +58,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.className} ${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${inter.variable} ${poppins.variable} ${davidLibre.variable} ${firaCode.variable} ${lora.variable} ${spectral.variable} antialiased bg-[#11120d] text-gray-200`}
       >
         {children}
       </body>
